@@ -1,0 +1,26 @@
+name: Scheduled Merge
+
+on:
+  schedule:
+    - cron: '20 21 19 2 *'  # Runs on Feb 19, 2025, at 9:20 PM UTC (Feb 20, 3:05 AM NPT)
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  merge-branches:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Merge `image` branch into `master`
+        run: |
+          git checkout master
+          git pull origin master
+          git merge --no-ff image -m "Scheduled merge of image branch into master"
+          git push origin master
