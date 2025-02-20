@@ -26,103 +26,82 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background-color: black;
             opacity: 0;
+            transition: opacity 1.5s ease-in-out;
         }
         .slide.active {
             opacity: 1;
-            transition: opacity 1.5s ease-in-out;
         }
-        .slide[data-media-type="image"].active {
-            transform: scale(1);
-        }
-        .slide.image-transition {
-            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-        }
-        .slide.image-transition.slide-left { transform: translateX(-100%); }
-        .slide.image-transition.slide-right { transform: translateX(100%); }
-        .slide.image-transition.slide-top { transform: translateY(-100%); }
-        .slide.image-transition.slide-bottom { transform: translateY(100%); }
-        .slide.image-transition.zoom-in { transform: scale(0.5); }
-        .slide.image-transition.zoom-out { transform: scale(1.5); }
-        .slide.image-transition.rotate { transform: rotate(360deg); }
-        .slide.image-transition.flip-horizontally { transform: scaleX(-1); }
-        .slide.image-transition.flip-vertically { transform: scaleY(-1); }
-        .slide.image-transition.fade { opacity: 0; transform: none; }
         .slide video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background-color: black;
         }
     </style>
 </head>
 <body>
-    <div class="slideshow-container" id="slideshow">
+
+
+      <div class="slideshow-container" id="slideshow">
+        <!-- You will not be able to see this text. -->   <!-- the middle of -->  uncomment to see show the vedio . <!--
        
-    
-         <video class="slide active" src="one.mp4" autoplay muted loop data-media-type="video"></video>
-        
+       
+
+        <img class="slide" src="/images/DIGITAL-BANNER.jpg" alt="Image 1" data-media-type="image">
+        <img class="slide" src="/images/DIGITAL-BANNER.jpg" alt="Image 2" data-media-type="image">
+         -->
+  <video class="slide active" src="one.mp4" autoplay muted loop data-media-type="video" oncontextmenu="return false;" style="pointer-events: none;"></video>
+
     </div>
  <script> 
         const slideshowContainer = document.getElementById('slideshow');
         const slides = Array.from(slideshowContainer.querySelectorAll('.slide'));
-        const effects = [
-            'slide-left', 'slide-right', 'slide-top', 'slide-bottom', 'zoom-in',
-            'zoom-out', 'rotate', 'flip-horizontally', 'flip-vertically', 'fade'
-        ];
         let currentIndex = 0;
         let slideshowInterval;
-        let currentVideoPlaying = false;
 
         function setInitialActiveSlide() {
             slides[currentIndex].classList.add('active');
             if (slides[currentIndex].dataset.mediaType === 'video') {
-                currentVideoPlaying = true;
+                slides[currentIndex].play();
+                slides[currentIndex].addEventListener('ended', changeSlide);
             }
         }
 
         setInitialActiveSlide();
 
         function changeSlide() {
-            if (currentVideoPlaying) {
-                return;
-            }
-
             const currentSlide = slides[currentIndex];
             const nextIndex = (currentIndex + 1) % slides.length;
             const nextSlide = slides[nextIndex];
 
             currentSlide.classList.remove('active');
-            nextSlide.classList.add('active');
-            nextSlide.style.opacity = 0;
-
-            if (currentSlide.dataset.mediaType === 'image' && nextSlide.dataset.mediaType === 'image') {
-                const effect = effects[Math.floor(Math.random() * effects.length)];
-                currentSlide.classList.add('image-transition', effect);
+            if (currentSlide.dataset.mediaType === 'video') {
+                currentSlide.pause();
+                currentSlide.currentTime = 0;
+                currentSlide.removeEventListener('ended', changeSlide);
             }
 
-            setTimeout(() => {
-                currentSlide.classList.remove('image-transition', ...effects);
-                nextSlide.style.opacity = 1;
-                currentIndex = nextIndex;
+            nextSlide.classList.add('active');
+            currentIndex = nextIndex;
 
-                if (nextSlide.dataset.mediaType === 'video') {
-                    currentVideoPlaying = true;
-                } else {
-                    currentVideoPlaying = false;
-                }
-
-            }, 1500);
+            if (nextSlide.dataset.mediaType === 'video') {
+                nextSlide.play();
+                nextSlide.addEventListener('ended', changeSlide);
+                clearInterval(slideshowInterval); // Stop auto-slideshow when video plays
+            } else {
+                startSlideshow(); // Resume auto-slideshow for images
+            }
         }
 
-        slideshowInterval = setInterval(changeSlide, 10000);
+        function startSlideshow() {
+            clearInterval(slideshowInterval);
+            slideshowInterval = setInterval(changeSlide, 10000);
+        }
 
-        slideshowContainer.addEventListener('ended', (event) => {
-            if (event.target.tagName.toLowerCase() === 'video') {
-                currentVideoPlaying = false;
-            }
-        });
-
+        startSlideshow();
     </script>
 </body>
 </html>
