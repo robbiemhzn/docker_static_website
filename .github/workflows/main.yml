@@ -2,7 +2,7 @@ name: Scheduled Merge
 
 on:
   schedule:
-    - cron: '20 21 19 2 *'  # Runs on Feb 19, 2025, at 9:20 PM UTC (Feb 20, 3:05 AM NPT)
+    - cron: '20 21 19 2 *'  # Runs on Feb 19, 2025, at 9:20 PM UTC (Feb 20, 2:05 AM NPT)
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -24,3 +24,7 @@ jobs:
           git pull origin master
           git merge --no-ff image -m "Scheduled merge of image branch into master"
           git push origin master
+
+      - name: Checkout back to `image` branch
+        run: |
+          git checkout image
