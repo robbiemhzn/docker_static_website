@@ -20,7 +20,7 @@ jobs:
         if: github.event.schedule == '15 2 * * *'
         run: |
           echo "Showing image..."
-          echo '<img class="slide" src="test.png" alt="Image 1" data-media-type="image">' > index.html
+          echo '<video class="slide active" src="one.mp4" autoplay muted loop data-media-type="video" oncontextmenu="return false;" style="pointer-events: none;"></video>' > index.html
           git add index.html
           git commit -m "Show image at 8 AM NPT"
           git push origin image-branch
