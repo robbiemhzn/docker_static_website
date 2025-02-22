@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="300">
+    <title>Slideshow</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+        }
+        .slideshow-container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: black;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+
+      <div class="slideshow-container" id="slideshow">
+        <!-- You will not be able to see this text. -->   <!-- the middle of -->  uncomment to see show the vedio . <!--
+       
+       
+
+        <img class="slide" src="/images/DIGITAL-BANNER.jpg" alt="Image 1" data-media-type="image">
+        <img class="slide" src="/images/DIGITAL-BANNER.jpg" alt="Image 2" data-media-type="image">
+         -->
+ <! <video class="slide active" src="one.mp4" autoplay muted loop data-media-type="video" oncontextmenu="return false;" style="pointer-events: none;"></video> -->
+
+    </div>
+ <script> 
+        const slideshowContainer = document.getElementById('slideshow');
+        const slides = Array.from(slideshowContainer.querySelectorAll('.slide'));
+        let currentIndex = 0;
+        let slideshowInterval;
+
+        function setInitialActiveSlide() {
+            slides[currentIndex].classList.add('active');
+            if (slides[currentIndex].dataset.mediaType === 'video') {
+                slides[currentIndex].play();
+                slides[currentIndex].addEventListener('ended', changeSlide);
+            }
+        }
+
+        setInitialActiveSlide();
+
+        function changeSlide() {
+            const currentSlide = slides[currentIndex];
+            const nextIndex = (currentIndex + 1) % slides.length;
+            const nextSlide = slides[nextIndex];
+
+            currentSlide.classList.remove('active');
+            if (currentSlide.dataset.mediaType === 'video') {
+                currentSlide.pause();
+                currentSlide.currentTime = 0;
+                currentSlide.removeEventListener('ended', changeSlide);
+            }
+
+            nextSlide.classList.add('active');
+            currentIndex = nextIndex;
+
+            if (nextSlide.dataset.mediaType === 'video') {
+                nextSlide.play();
+                nextSlide.addEventListener('ended', changeSlide);
+                clearInterval(slideshowInterval); // Stop auto-slideshow when video plays
+            } else {
+                startSlideshow(); // Resume auto-slideshow for images
+            }
+        }
+
+        function startSlideshow() {
+            clearInterval(slideshowInterval);
+            slideshowInterval = setInterval(changeSlide, 10000);
+        }
+
+        startSlideshow();
+    </script>
+</body>
+</html>
