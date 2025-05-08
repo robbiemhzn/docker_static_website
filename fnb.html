@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="300">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="300" />
   <title>Slideshow</title>
   <style>
     body, html {
@@ -13,6 +13,7 @@
       background-color: black;
       overflow: hidden;
     }
+
     .slideshow-container {
       position: absolute;
       width: 100vw;
@@ -22,18 +23,21 @@
       align-items: center;
       overflow: hidden;
     }
+
     .slide {
       position: absolute;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      background-color: black;
+      background-color: transparent;
       opacity: 0;
-      transition: opacity 1.5s ease-in-out;
+      transition: opacity 2.5s ease-in-out;
     }
+
     .slide.active {
       opacity: 1;
     }
+
     .slide video {
       width: 100%;
       height: 100%;
@@ -57,33 +61,30 @@
     }
 
     .slide.fade.active {
-      animation: fadeEffect 1.5s ease-in-out forwards;
+      animation: fadeEffect 2.5s ease-in-out forwards;
     }
 
     .slide.zoom.active {
-      animation: zoomEffect 2s ease-in-out forwards;
+      animation: zoomEffect 3s ease-in-out forwards;
     }
 
     .slide.slidein.active {
-      animation: slideEffect 1.5s ease-in-out forwards;
+      animation: slideEffect 2.5s ease-in-out forwards;
     }
   </style>
 </head>
 <body>
   <div class="slideshow-container" id="slideshow">
-  <!--
-    <img class="slide fade" src="engagement.png" alt="Image 1" data-media-type="image">
-    <video class="slide active" src="one.mp4" autoplay muted loop data-media-type="video" oncontextmenu="return false;" style="pointer-events: none;"></video>
--->
-
-<!-- Inside your #slideshow container -->
-<img class="slide fade" src="img1.jpg" alt="Image 1" data-media-type="image">
-<img class="slide zoom" src="img2.jpg" alt="Image 2" data-media-type="image">
-<img class="slide zoom" src="img3.jpg" alt="Image 2" data-media-type="image">
-<img class="slide zoom" src="img4.jpg" alt="Image 2" data-media-type="image">
-<img class="slide zoom" src="img5.jpg" alt="Image 2" data-media-type="image">
-<img class="slide zoom" src="img6.jpg" alt="Image 2" data-media-type="image">
-    
+    <!-- Add your images and videos here -->
+    <img class="slide fade active" src="img1.jpg" alt="Image 1" data-media-type="image" />
+    <img class="slide zoom" src="img2.jpg" alt="Image 2" data-media-type="image" />
+    <img class="slide zoom" src="img3.jpg" alt="Image 3" data-media-type="image" />
+    <img class="slide zoom" src="img4.jpg" alt="Image 4" data-media-type="image" />
+    <img class="slide zoom" src="img5.jpg" alt="Image 5" data-media-type="image" />
+    <img class="slide zoom" src="img6.jpg" alt="Image 6" data-media-type="image" />
+    <!-- Example video (optional):
+    <video class="slide" src="one.mp4" autoplay muted loop data-media-type="video" oncontextmenu="return false;" style="pointer-events: none;"></video>
+    -->
   </div>
 
   <script>
@@ -99,8 +100,6 @@
         slides[currentIndex].addEventListener('ended', changeSlide);
       }
     }
-
-    setInitialActiveSlide();
 
     function changeSlide() {
       const currentSlide = slides[currentIndex];
@@ -128,9 +127,10 @@
 
     function startSlideshow() {
       clearInterval(slideshowInterval);
-      slideshowInterval = setInterval(changeSlide, 10000);
+      slideshowInterval = setInterval(changeSlide, 15000); // 15 seconds
     }
 
+    setInitialActiveSlide();
     startSlideshow();
   </script>
 </body>
