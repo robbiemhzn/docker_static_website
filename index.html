@@ -3,82 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ravi Maharjan Portfolio</title>
+  <title>Ravi Maharjan | DevOps Engineer</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom green-black theme */
+    :root {
+      --primary-color: #10b981; /* green */
+      --secondary-color: #111827; /* black */
+    }
+    a { color: var(--primary-color); }
+    a:hover { text-decoration: underline; }
+  </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900">
+<body class="bg-gray-900 text-gray-100 font-sans">
 
   <!-- Header -->
-  <header class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="text-xl font-bold">Ravi Maharjan</div>
+  <header class="bg-secondary-color shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="text-2xl font-bold text-green-400">Ravi Maharjan</div>
       <nav class="hidden md:flex gap-6 items-center text-sm">
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#career" class="hover:underline">Career</a>
-        <a href="#skills" class="hover:underline">Skills</a>
-        <a href="#projects" class="hover:underline">Projects</a>
-        <a href="#education" class="hover:underline">Education</a>
-        <a href="#contact" class="px-3 py-2 bg-slate-900 text-white rounded">Contact</a>
+        <a href="#about" class="hover:text-green-300">About</a>
+        <a href="#career" class="hover:text-green-300">Career</a>
+        <a href="#skills" class="hover:text-green-300">Skills</a>
+        <a href="#projects" class="hover:text-green-300">Projects</a>
+        <a href="#education" class="hover:text-green-300">Education</a>
+        <a href="#contact" class="px-3 py-2 bg-green-500 text-gray-900 rounded hover:bg-green-400">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-12">
+  <main class="max-w-6xl mx-auto px-6 py-12">
 
     <!-- About -->
-    <section id="about" class="grid md:grid-cols-3 gap-8 items-center">
+    <section id="about" class="grid md:grid-cols-3 gap-8 items-center bg-gray-800 p-8 rounded-lg shadow-lg">
       <div class="md:col-span-2">
-        <h1 class="text-4xl md:text-5xl font-extrabold">IT Specialist | DevOps | Network & Infrastructure Expert</h1>
-        <p class="mt-4 text-lg text-slate-700">
-          Experienced in IT operations, server/network administration, CCTV, PABX, cloud platforms, and hotel IT systems.
+        <h1 class="text-4xl md:text-5xl font-extrabold text-green-400">DevOps & IT Specialist</h1>
+        <p class="mt-4 text-gray-300 text-lg">
+          Experienced in IT operations, server/network administration, cloud platforms, CCTV, PABX, and hotel IT systems.
           Skilled in AWS, Linux, Terraform, Ansible, Kubernetes, Docker, Jenkins, CI/CD, and network monitoring.
         </p>
         <div class="mt-6 flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-white border rounded text-sm">AWS</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">Linux</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">Terraform</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">Ansible</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">Kubernetes</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">Docker</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">Jenkins</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">CI/CD</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">Network Monitoring</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">PABX</span>
-          <span class="px-3 py-1 bg-white border rounded text-sm">CCTV</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">AWS</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">Linux</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">Terraform</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">Ansible</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">Kubernetes</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">Docker</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">Jenkins</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">CI/CD</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">Networking</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">PABX</span>
+          <span class="px-3 py-1 bg-green-500 text-gray-900 rounded text-sm font-semibold">CCTV</span>
         </div>
       </div>
-    <div class="flex justify-center md:justify-end">
-  <img src="photo1.jpeg" alt="Ravi Maharjan" class="w-52 h-52 object-cover rounded-2xl shadow-lg" />
-</div>
-
+      <div class="flex justify-center md:justify-end">
+        <img src="photo1.jpeg" alt="Ravi Maharjan" class="w-48 h-48 object-cover rounded-full border-4 border-green-500 shadow-xl" />
+      </div>
     </section>
 
     <!-- Career -->
     <section id="career" class="mt-12">
-      <h2 class="text-2xl font-semibold">Career History</h2>
-      <div class="mt-4 space-y-4">
-        <div class="bg-white p-4 rounded-lg border shadow-sm">
-          <div class="text-sm text-slate-500">26/05/2024 – Current</div>
-          <h3 class="font-semibold mt-2">IT Specialist</h3>
-          <div class="text-sm text-slate-600 mt-1">Holiday Forest Inn</div>
+      <h2 class="text-3xl font-bold text-green-400 mb-4">Career History</h2>
+      <div class="space-y-4">
+        <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-green-500 shadow-sm">
+          <div class="text-sm text-gray-400">26/05/2024 – Current</div>
+          <h3 class="font-semibold text-lg mt-1">IT Specialist</h3>
+          <div class="text-gray-300 mt-1">Holiday Forest Inn</div>
         </div>
-        <div class="bg-white p-4 rounded-lg border shadow-sm">
-          <div class="text-sm text-slate-500">15/03/2023 – 24/05/2024</div>
-          <h3 class="font-semibold mt-2">IT Officer</h3>
-          <div class="text-sm text-slate-600 mt-1">Campion Academy</div>
+        <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-green-500 shadow-sm">
+          <div class="text-sm text-gray-400">15/03/2023 – 24/05/2024</div>
+          <h3 class="font-semibold text-lg mt-1">IT Officer</h3>
+          <div class="text-gray-300 mt-1">Campion Academy</div>
         </div>
-        <div class="bg-white p-4 rounded-lg border shadow-sm">
-          <div class="text-sm text-slate-500">20/11/2018 – 15/05/2022</div>
-          <h3 class="font-semibold mt-2">NOC Executive</h3>
-          <div class="text-sm text-slate-600 mt-1">Broadlink Network and Communication Ltd.</div>
+        <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-green-500 shadow-sm">
+          <div class="text-sm text-gray-400">20/11/2018 – 15/05/2022</div>
+          <h3 class="font-semibold text-lg mt-1">NOC Executive</h3>
+          <div class="text-gray-300 mt-1">Broadlink Network and Communication Ltd.</div>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="mt-12 bg-white p-6 rounded-lg border shadow-sm">
-      <h3 class="font-semibold">Technical Expertise & Skills</h3>
-      <ul class="mt-4 list-disc list-inside text-sm text-slate-600">
+    <section id="skills" class="mt-12 bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-bold text-green-400">Technical Expertise & Skills</h3>
+      <ul class="mt-4 list-disc list-inside text-gray-300 text-sm space-y-1">
         <li>Server & Network Administration</li>
         <li>CCTV & PABX Systems</li>
         <li>Office 365, SharePoint, Azure</li>
@@ -92,27 +100,23 @@
 
     <!-- Projects -->
     <section id="projects" class="mt-12">
-      <h2 class="text-2xl font-semibold">Projects</h2>
-      <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white p-4 rounded-lg border shadow-sm flex flex-col justify-between">
-          <div>
-            <h3 class="font-semibold">Infrastructure Automation</h3>
-            <p class="mt-2 text-sm text-slate-600">Automated IT infrastructure for high availability and operational efficiency.</p>
-          </div>
-          <div class="mt-4 flex gap-2 text-xs">
-            <span class="px-2 py-1 bg-slate-50 border rounded">AWS</span>
-            <span class="px-2 py-1 bg-slate-50 border rounded">Terraform</span>
-            <span class="px-2 py-1 bg-slate-50 border rounded">Kubernetes</span>
+      <h2 class="text-3xl font-bold text-green-400 mb-6">Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-green-500 shadow-lg">
+          <h3 class="font-semibold text-lg text-green-300">Infrastructure Automation</h3>
+          <p class="mt-2 text-gray-300 text-sm">Automated IT infrastructure for high availability and operational efficiency.</p>
+          <div class="mt-3 flex gap-2 flex-wrap text-xs">
+            <span class="px-2 py-1 bg-green-500 text-gray-900 rounded font-semibold">AWS</span>
+            <span class="px-2 py-1 bg-green-500 text-gray-900 rounded font-semibold">Terraform</span>
+            <span class="px-2 py-1 bg-green-500 text-gray-900 rounded font-semibold">Kubernetes</span>
           </div>
         </div>
-        <div class="bg-white p-4 rounded-lg border shadow-sm flex flex-col justify-between">
-          <div>
-            <h3 class="font-semibold">SSL & Certificate Monitoring</h3>
-            <p class="mt-2 text-sm text-slate-600">SSL expiry and certificate monitoring tool deployed on Kubernetes.</p>
-          </div>
-          <div class="mt-4 flex gap-2 text-xs">
-            <span class="px-2 py-1 bg-slate-50 border rounded">Python</span>
-            <span class="px-2 py-1 bg-slate-50 border rounded">Kubernetes</span>
+        <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-green-500 shadow-lg">
+          <h3 class="font-semibold text-lg text-green-300">SSL & Certificate Monitoring</h3>
+          <p class="mt-2 text-gray-300 text-sm">SSL expiry and certificate monitoring tool deployed on Kubernetes.</p>
+          <div class="mt-3 flex gap-2 flex-wrap text-xs">
+            <span class="px-2 py-1 bg-green-500 text-gray-900 rounded font-semibold">Python</span>
+            <span class="px-2 py-1 bg-green-500 text-gray-900 rounded font-semibold">Kubernetes</span>
           </div>
         </div>
       </div>
@@ -120,40 +124,33 @@
 
     <!-- Education -->
     <section id="education" class="mt-12 grid md:grid-cols-2 gap-6">
-      <div class="bg-white p-6 rounded-lg border shadow-sm">
-        <h3 class="font-semibold">Education</h3>
-        <ul class="mt-4 list-disc list-inside text-sm text-slate-600">
+      <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-green-500 shadow-lg">
+        <h3 class="font-semibold text-lg text-green-400">Education</h3>
+        <ul class="mt-4 list-disc list-inside text-gray-300 text-sm space-y-1">
           <li>B.Sc. in Computing – British College (EQF Level 6)</li>
-          <li>Pearson BTech Level 5 HND Diploma in Computing – ISMT (EQF Level 5)</li>
+          <li>Pearson BTech Level 5 HND Diploma – ISMT (EQF Level 5)</li>
           <li>School Leaving Certificate – Baal Vidhya Griha Boarding School (EQF Level 4)</li>
         </ul>
       </div>
-      <div class="bg-white p-6 rounded-lg border shadow-sm">
-        <h3 class="font-semibold">Languages</h3>
-        <p class="text-sm text-slate-600 mt-2">Mother tongue: Nepalese</p>
+      <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-green-500 shadow-lg">
+        <h3 class="font-semibold text-lg text-green-400">Languages</h3>
+        <p class="text-gray-300 text-sm mt-2">Mother tongue: Nepalese</p>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="mt-12 bg-white p-6 rounded-lg border shadow-sm">
-      <h3 class="font-semibold">Contact</h3>
-      <p class="text-sm text-slate-600 mt-2">Email: robbie.mhzn.1@gmail.com</p>
-      <p class="text-sm text-slate-600">Phone: (+977) 9808715115</p>
-      <p class="text-sm text-slate-600">Address: Lagankhel, Lalitpur, Nepal</p>
+    <section id="contact" class="mt-12 bg-gray-800 p-6 rounded-lg border-l-4 border-green-500 shadow-lg">
+      <h3 class="font-semibold text-lg text-green-400">Contact</h3>
+      <p class="text-gray-300 mt-2">Email: robbie.mhzn.1@gmail.com</p>
+      <p class="text-gray-300">Phone: (+977) 9808715115</p>
+      <p class="text-gray-300">Address: Lagankhel, Lalitpur, Nepal</p>
     </section>
 
-
-    
   </main>
 
-  <footer class="border-t py-6 mt-12">
-    <div class="max-w-6xl mx-auto px-4 text-sm text-slate-600">© 2025 Ravi Maharjan — Built with HTML + Tailwind</div>
+  <footer class="border-t border-gray-700 py-6 mt-12 text-center text-gray-400">
+    © 2025 Ravi Maharjan — Built with Tailwind CSS
   </footer>
 
 </body>
 </html>
-
-
-
-
-
