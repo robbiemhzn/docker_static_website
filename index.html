@@ -1,169 +1,151 @@
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ravi Maharjan Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-900">
 
-
-
-/*
-Updated React single-file portfolio template with Ravi Maharjan's experience, education, skills, and work history.
-*/
-
-import React, {useState} from 'react'
-
-const skills = [
-  'AWS', 'Linux', 'Terraform', 'Ansible', 'Kubernetes', 'Docker', 'Jenkins', 'CI/CD', 'Network Monitoring', 'PABX', 'CCTV'
-]
-
-const career = [
-  { role: 'IT Specialist', org: 'Holiday Forest Inn', dates: '26/05/2024 – Current' },
-  { role: 'IT Officer', org: 'Campion Academy', dates: '15/03/2023 – 24/05/2024' },
-  { role: 'NOC Executive', org: 'Broadlink Network and Communication Ltd.', dates: '20/11/2018 – 15/05/2022' },
-]
-
-const projects = [
-  { title: 'Infrastructure Automation', tags: ['AWS','Terraform','Kubernetes'], description: 'Automated IT infrastructure for high availability and operational efficiency.', github: '#' },
-  { title: 'SSL & Certificate Monitoring', tags: ['Python','Kubernetes'], description: 'SSL expiry and certificate monitoring tool deployed on Kubernetes.', github: '#' }
-]
-
-export default function App(){
-  const [selected, setSelected] = useState(null)
-
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
-      <header className="bg-white shadow sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-xl font-bold">Ravi Maharjan</div>
-          <nav className="hidden md:flex gap-6 items-center text-sm">
-            <a href="#about" className="hover:underline">About</a>
-            <a href="#career" className="hover:underline">Career</a>
-            <a href="#certs" className="hover:underline">Certs & Skills</a>
-            <a href="#projects" className="hover:underline">Projects</a>
-            <a href="#education" className="hover:underline">Education</a>
-            <a href="#contact" className="px-3 py-2 bg-slate-900 text-white rounded">Contact</a>
-          </nav>
-        </div>
-      </header>
-
-      <main className="max-w-6xl mx-auto px-4 py-12">
-        {/* HERO / ABOUT */}
-        <section id="about" className="grid md:grid-cols-3 gap-8 items-center">
-          <div className="md:col-span-2">
-            <h1 className="text-4xl md:text-5xl font-extrabold">IT Specialist | DevOps | Network & Infrastructure Expert</h1>
-            <p className="mt-4 text-lg text-slate-700">Experienced in IT operations, server/network administration, CCTV, PABX, cloud platforms, and hotel IT systems. Skilled in AWS, Linux, Terraform, Ansible, Kubernetes, Docker, Jenkins, CI/CD, and network monitoring.</p>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {skills.slice(0,6).map(s => (
-                <span key={s} className="px-3 py-1 bg-white border rounded text-sm">{s}</span>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex justify-center md:justify-end">
-            <div className="w-52 h-52 bg-gradient-to-tr from-slate-700 to-slate-400 rounded-2xl shadow-lg flex items-center justify-center text-white text-xl">Photo</div>
-          </div>
-        </section>
-
-        {/* CAREER */}
-        <section id="career" className="mt-12">
-          <h2 className="text-2xl font-semibold">Career History</h2>
-          <div className="mt-4 overflow-x-auto scroll-smooth snap-x flex gap-4 py-4">
-            {career.map((c, i) => (
-              <article key={i} className="min-w-[280px] snap-start bg-white p-4 rounded-lg border shadow-sm">
-                <div className="text-sm text-slate-500">{c.dates}</div>
-                <h3 className="font-semibold mt-2">{c.role}</h3>
-                <div className="text-sm text-slate-600 mt-1">{c.org}</div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* CERTS & SKILLS */}
-        <section id="certs" className="mt-12 grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-lg border shadow-sm">
-            <h3 className="font-semibold">Technical Expertise & Skills</h3>
-            <ul className="mt-4 list-disc list-inside text-sm text-slate-600">
-              <li>Server & Network Administration</li>
-              <li>CCTV & PABX Systems</li>
-              <li>Office 365, SharePoint, Azure</li>
-              <li>Linux, AWS Cloud, Terraform, Ansible</li>
-              <li>Kubernetes, Docker, Jenkins, CI/CD</li>
-              <li>IT Security, Firewalls, Antivirus Management</li>
-              <li>Asset Management, PMS, POS, Accounting Systems</li>
-              <li>System Monitoring & Documentation</li>
-            </ul>
-          </div>
-        </section>
-
-        {/* PROJECTS */}
-        <section id="projects" className="mt-12">
-          <h2 className="text-2xl font-semibold">Projects</h2>
-          <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((p,i) => (
-              <div key={i} className="bg-white p-4 rounded-lg border shadow-sm flex flex-col justify-between">
-                <div>
-                  <h3 className="font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{p.description}</p>
-                </div>
-                <div className="mt-4 flex items-center justify-between">
-                  <div className="flex gap-2 text-xs">
-                    {p.tags.map(t => <span key={t} className="px-2 py-1 bg-slate-50 border rounded">{t}</span>)}
-                  </div>
-                  <div className="flex gap-2">
-                    <button onClick={()=>setSelected(p)} className="px-3 py-1 border rounded text-sm">Preview</button>
-                    <a href={p.github} className="px-3 py-1 bg-slate-900 text-white rounded text-sm">GitHub</a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* EDUCATION */}
-        <section id="education" className="mt-12 grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-lg border shadow-sm">
-            <h3 className="font-semibold">Education</h3>
-            <ul className="mt-4 list-disc list-inside text-sm text-slate-600">
-              <li>B.Sc. in Computing – British College (EQF Level 6)</li>
-              <li>Pearson BTech Level 5 HND Diploma in Computing – ISMT (EQF Level 5)</li>
-              <li>School Leaving Certificate – Baal Vidhya Griha Boarding School (EQF Level 4)</li>
-            </ul>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg border shadow-sm">
-            <h3 className="font-semibold">Languages</h3>
-            <p className="text-sm text-slate-600 mt-2">Mother tongue: Nepalese</p>
-          </div>
-        </section>
-
-        {/* CONTACT */}
-        <section id="contact" className="mt-12 bg-white p-6 rounded-lg border shadow-sm">
-          <h3 className="font-semibold">Contact</h3>
-          <p className="text-sm text-slate-600 mt-2">Email: robbie.mhzn.1@gmail.com</p>
-          <p className="text-sm text-slate-600">Phone: (+977) 9808715115</p>
-          <p className="text-sm text-slate-600">Address: Lagankhel, Lalitpur, Nepal</p>
-        </section>
-      </main>
-
-      <footer className="border-t py-6 mt-12">
-        <div className="max-w-6xl mx-auto px-4 text-sm text-slate-600">© {new Date().getFullYear()} Ravi Maharjan — Built with React + Tailwind</div>
-      </footer>
-
-      {/* Project modal */}
-      {selected && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={()=>setSelected(null)}>
-          <div className="bg-white p-6 rounded max-w-xl w-full" onClick={(e)=>e.stopPropagation()}>
-            <h3 className="font-semibold text-lg">{selected.title}</h3>
-            <p className="text-sm text-slate-700 mt-2">{selected.description}</p>
-            <div className="mt-4 flex gap-2">
-              {selected.tags.map(t => <span key={t} className="px-2 py-1 bg-slate-50 border rounded text-xs">{t}</span>)}
-            </div>
-            <div className="mt-6 flex justify-end">
-              <button onClick={()=>setSelected(null)} className="px-4 py-2 border rounded">Close</button>
-            </div>
-          </div>
-        </div>
-      )}
+  <!-- Header -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="text-xl font-bold">Ravi Maharjan</div>
+      <nav class="hidden md:flex gap-6 items-center text-sm">
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#career" class="hover:underline">Career</a>
+        <a href="#skills" class="hover:underline">Skills</a>
+        <a href="#projects" class="hover:underline">Projects</a>
+        <a href="#education" class="hover:underline">Education</a>
+        <a href="#contact" class="px-3 py-2 bg-slate-900 text-white rounded">Contact</a>
+      </nav>
     </div>
-  )
-}
+  </header>
 
+  <main class="max-w-6xl mx-auto px-4 py-12">
+
+    <!-- About -->
+    <section id="about" class="grid md:grid-cols-3 gap-8 items-center">
+      <div class="md:col-span-2">
+        <h1 class="text-4xl md:text-5xl font-extrabold">IT Specialist | DevOps | Network & Infrastructure Expert</h1>
+        <p class="mt-4 text-lg text-slate-700">
+          Experienced in IT operations, server/network administration, CCTV, PABX, cloud platforms, and hotel IT systems.
+          Skilled in AWS, Linux, Terraform, Ansible, Kubernetes, Docker, Jenkins, CI/CD, and network monitoring.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-white border rounded text-sm">AWS</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">Linux</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">Terraform</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">Ansible</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">Kubernetes</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">Docker</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">Jenkins</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">CI/CD</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">Network Monitoring</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">PABX</span>
+          <span class="px-3 py-1 bg-white border rounded text-sm">CCTV</span>
+        </div>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <div class="w-52 h-52 bg-gradient-to-tr from-slate-700 to-slate-400 rounded-2xl shadow-lg flex items-center justify-center text-white text-xl">Photo</div>
+      </div>
+    </section>
+
+    <!-- Career -->
+    <section id="career" class="mt-12">
+      <h2 class="text-2xl font-semibold">Career History</h2>
+      <div class="mt-4 space-y-4">
+        <div class="bg-white p-4 rounded-lg border shadow-sm">
+          <div class="text-sm text-slate-500">26/05/2024 – Current</div>
+          <h3 class="font-semibold mt-2">IT Specialist</h3>
+          <div class="text-sm text-slate-600 mt-1">Holiday Forest Inn</div>
+        </div>
+        <div class="bg-white p-4 rounded-lg border shadow-sm">
+          <div class="text-sm text-slate-500">15/03/2023 – 24/05/2024</div>
+          <h3 class="font-semibold mt-2">IT Officer</h3>
+          <div class="text-sm text-slate-600 mt-1">Campion Academy</div>
+        </div>
+        <div class="bg-white p-4 rounded-lg border shadow-sm">
+          <div class="text-sm text-slate-500">20/11/2018 – 15/05/2022</div>
+          <h3 class="font-semibold mt-2">NOC Executive</h3>
+          <div class="text-sm text-slate-600 mt-1">Broadlink Network and Communication Ltd.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mt-12 bg-white p-6 rounded-lg border shadow-sm">
+      <h3 class="font-semibold">Technical Expertise & Skills</h3>
+      <ul class="mt-4 list-disc list-inside text-sm text-slate-600">
+        <li>Server & Network Administration</li>
+        <li>CCTV & PABX Systems</li>
+        <li>Office 365, SharePoint, Azure</li>
+        <li>Linux, AWS Cloud, Terraform, Ansible</li>
+        <li>Kubernetes, Docker, Jenkins, CI/CD</li>
+        <li>IT Security, Firewalls, Antivirus Management</li>
+        <li>Asset Management, PMS, POS, Accounting Systems</li>
+        <li>System Monitoring & Documentation</li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mt-12">
+      <h2 class="text-2xl font-semibold">Projects</h2>
+      <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-4 rounded-lg border shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="font-semibold">Infrastructure Automation</h3>
+            <p class="mt-2 text-sm text-slate-600">Automated IT infrastructure for high availability and operational efficiency.</p>
+          </div>
+          <div class="mt-4 flex gap-2 text-xs">
+            <span class="px-2 py-1 bg-slate-50 border rounded">AWS</span>
+            <span class="px-2 py-1 bg-slate-50 border rounded">Terraform</span>
+            <span class="px-2 py-1 bg-slate-50 border rounded">Kubernetes</span>
+          </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg border shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="font-semibold">SSL & Certificate Monitoring</h3>
+            <p class="mt-2 text-sm text-slate-600">SSL expiry and certificate monitoring tool deployed on Kubernetes.</p>
+          </div>
+          <div class="mt-4 flex gap-2 text-xs">
+            <span class="px-2 py-1 bg-slate-50 border rounded">Python</span>
+            <span class="px-2 py-1 bg-slate-50 border rounded">Kubernetes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="mt-12 grid md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-lg border shadow-sm">
+        <h3 class="font-semibold">Education</h3>
+        <ul class="mt-4 list-disc list-inside text-sm text-slate-600">
+          <li>B.Sc. in Computing – British College (EQF Level 6)</li>
+          <li>Pearson BTech Level 5 HND Diploma in Computing – ISMT (EQF Level 5)</li>
+          <li>School Leaving Certificate – Baal Vidhya Griha Boarding School (EQF Level 4)</li>
+        </ul>
+      </div>
+      <div class="bg-white p-6 rounded-lg border shadow-sm">
+        <h3 class="font-semibold">Languages</h3>
+        <p class="text-sm text-slate-600 mt-2">Mother tongue: Nepalese</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mt-12 bg-white p-6 rounded-lg border shadow-sm">
+      <h3 class="font-semibold">Contact</h3>
+      <p class="text-sm text-slate-600 mt-2">Email: robbie.mhzn.1@gmail.com</p>
+      <p class="text-sm text-slate-600">Phone: (+977) 9808715115</p>
+      <p class="text-sm text-slate-600">Address: Lagankhel, Lalitpur, Nepal</p>
+    </section>
+
+  </main>
+
+  <footer class="border-t py-6 mt-12">
+    <div class="max-w-6xl mx-auto px-4 text-sm text-slate-600">© 2025 Ravi Maharjan — Built with HTML + Tailwind</div>
+  </footer>
+
+</body>
+</html>
