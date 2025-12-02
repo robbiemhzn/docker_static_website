@@ -46,18 +46,30 @@
 
 
       <div class="slideshow-container" id="slideshow">
-        <!-- You will not be able to see this text. -->   <!-- the middle of -->  uncomment to see show the vedio . -->
-       
-       
+        <!-- You will not be able to see this text. -->   <!-- the middle of -->  uncomment to see show the vedio . <!--
+       <img class="slide" src="engagement.png" alt="Image 1" data-media-type="image">
 
-        <img class="slide" src="shivapuri.png" alt="Image 1" data-media-type="image">
-        <img class="slide" src="workshop.png" alt="Image 2" data-media-type="image">
+          <video class="slide active" src="one.mp4" autoplay muted loop data-media-type="video" oncontextmenu="return false;" style="pointer-events: none;"></video>
 
-          <!-- comment
-  <video class="slide active" src="one.mp4" autoplay muted loop data-media-type="video" oncontextmenu="return false;" style="pointer-events: none;"></video>
-          -->
+          ADD TV
 
-    </div>
+        <img class="slide" src="nov28.png" alt="Image 5" data-media-type="image" />          
+        <img class="slide" src="BBQ Nights.png" alt="Image 5" data-media-type="image" />
+
+           <img class="slide" src="Whiskey & Kebab TV Slide.png" alt="Image 5" data-media-type="image" />  
+
+            ADD TV
+
+             
+-->
+        <img class="slide" src="BFT Traffic.png" alt="Image 5" data-media-type="image" />  
+        <img class="slide" src="Happy Hour TV Slide.png" alt="Image 5" data-media-type="image" />  
+          <img class="slide" src="Pitcher Perfect Moments TV Slide.png" alt="Image 5" data-media-type="image" />  
+          <img class="slide" src="BBQ Brunch TV Slide.png" alt="Image 5" data-media-type="image" />  
+        <img class="slide" src="Breakfast by the Pool TV Slide.png" alt="Image 5" data-media-type="image" />  
+<img class="slide" src="Christmas Goodies TV Slide.jpg" alt="Image 5" data-media-type="image" />  
+          <img class="slide" src="Whiskey & Kebab TV Slide.png" alt="Image 5" data-media-type="image" />  
+          
  <script> 
         const slideshowContainer = document.getElementById('slideshow');
         const slides = Array.from(slideshowContainer.querySelectorAll('.slide'));
@@ -100,7 +112,7 @@
 
         function startSlideshow() {
             clearInterval(slideshowInterval);
-            slideshowInterval = setInterval(changeSlide, 10000);
+            slideshowInterval = setInterval(changeSlide, 30000);
         }
 
         startSlideshow();
